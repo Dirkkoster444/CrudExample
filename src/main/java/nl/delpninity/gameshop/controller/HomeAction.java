@@ -8,21 +8,20 @@ import java.util.ArrayList;
 import java.util.Set;
 
 public class HomeAction {
-
     private ArrayList<Game> games;
-
-    public String home() {
-        Gameshop shop = GameshopFacade.getInstance().getGameshop();
-        games = shop.getAllGames();
-        return "SUCCESS";
-    }
 
     public ArrayList<Game> getGames() {
         return games;
     }
-
+    
     public void setGames(ArrayList<Game> games) {
         this.games = games;
+    }
+
+    public String home() {
+    Gameshop shop = GameshopFacade.getInstance().getGameshop();
+    games = shop.getAllGames();
+    return "SUCCESS";
     }
 
 }
