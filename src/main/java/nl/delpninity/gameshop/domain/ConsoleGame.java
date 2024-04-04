@@ -5,7 +5,6 @@ import jakarta.persistence.Entity;
 
 @Entity
 public class ConsoleGame extends Game{
-
     @Column(name = "requiredAge", nullable = true)
     private int requiredAge;
 
