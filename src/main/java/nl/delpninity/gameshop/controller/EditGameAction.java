@@ -8,12 +8,6 @@ public class EditGameAction {
     private Game game;
     private int id;
 
-    public String editGame(){
-        Gameshop shop = GameshopFacade.getInstance().getGameshop();
-        shop.editGame(id, game);
-        return "SUCCESS";
-    }
-
     public Game getGame() {
         return game;
     }
@@ -28,5 +22,11 @@ public class EditGameAction {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String editGame(){
+    Gameshop shop = GameshopFacade.getInstance().getGameshop();
+    shop.editGame(id, game);
+    return "SUCCESS";
     }
 }
