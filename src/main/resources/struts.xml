@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+
+    <constant name="struts.devMode" value="true" />
+
+    <package name="default" extends="struts-default" namespace="/">
+
+        <interceptors>
+            <interceptor name="HibernateInterceptor" class="nl.delpninity.gameshop.interceptor.HibernateInterceptor"/>
+            <interceptor-stack name="Gameshop">
+                <interceptor-ref name="defaultStack"/>
+                <interceptor-ref name="HibernateInterceptor"/>
+            </interceptor-stack>
+        </interceptors>
+
+        <action name="">
+            <result type="redirect">home</result>
+        </action>
+
+        <action name="home" class="nl.delpninity.gameshop.controller.HomeAction" method="home">
+            <interceptor-ref name="Gameshop"/>
+            <result name="SUCCESS">/home.jsp</result>
+        </action>
+
+        <action name="addGame" class="nl.delpninity.gameshop.controller.AddGameAction" method="addGame">
+            <interceptor-ref name="Gameshop"/>
+            <result type="redirect" name="SUCCESS">home</result>
+        </action>
+
+        <action name="deleteGame" class="nl.delpninity.gameshop.controller.DeleteGameAction" method="deleteGame">
+            <interceptor-ref name="Gameshop"/>
+            <result type="redirect" name="SUCCESS">home</result>
+        </action>
+
+        <action name="editGame" class="nl.delpninity.gameshop.controller.EditGameAction" method="editGame">
+            <interceptor-ref name="Gameshop"/>
+            <result type="redirect" name="SUCCESS">home</result>
+        </action>
+
+    </package>
+
+</struts>
