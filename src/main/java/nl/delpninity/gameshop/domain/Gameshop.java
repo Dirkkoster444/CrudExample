@@ -22,7 +22,27 @@ public class Gameshop {
    public Gameshop(){
    }
 
-    public void addGame(Game game) {
+    public ArrayList<Game> getAllGames() {
+        return DAOFactory.getFactory().getGameDAO().findAll();
+    }
+
+    public List<Game> getGames() {
+        return games;
+    }
+
+    public void setGames(List<Game> games) {
+        this.games = games;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+     public void addGame(Game game) {
         if (games == null)
             games = new ArrayList<>();
         games.add(game);
@@ -42,26 +62,6 @@ public class Gameshop {
        foundGame.setDescription(game.getDescription());
 
        DAOFactory.getFactory().getGameDAO().update(foundGame);
-    }
-
-    public ArrayList<Game> getAllGames() {
-        return DAOFactory.getFactory().getGameDAO().findAll();
-    }
-
-    public List<Game> getGames() {
-        return games;
-    }
-
-    public void setGames(List<Game> games) {
-        this.games = games;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
 }
