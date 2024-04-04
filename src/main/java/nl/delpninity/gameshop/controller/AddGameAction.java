@@ -8,15 +8,8 @@ import org.apache.struts2.action.SessionAware;
 import java.util.Map;
 
 public class AddGameAction extends ActionSupport implements SessionAware {
-
     private Map<String, Object> session;
     private Game game;
-
-    public String addGame() {
-        Gameshop g = GameshopFacade.getInstance().getGameshop();
-        g.addGame(game);
-        return "SUCCESS";
-    }
 
     @Override
     public void withSession(Map<String, Object> session){
@@ -29,6 +22,12 @@ public class AddGameAction extends ActionSupport implements SessionAware {
 
     public void setGame(Game game) {
         this.game = game;
+    }
+
+    public String addGame() {
+    Gameshop g = GameshopFacade.getInstance().getGameshop();
+    g.addGame(game);
+    return "SUCCESS";
     }
 }
 
